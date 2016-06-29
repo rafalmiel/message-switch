@@ -291,7 +291,9 @@ let make_server config =
      | Unix.Unix_error(Unix.ENOENT, _, _) -> return ()
      | e -> fail e)
   >>= fun () ->
-  Cohttp_lwt_unix.Server.create ~mode:(`Unix_domain_socket (`File config.path)) t
+  let res = Cohttp_lwt_unix.Server.create ~mode:(`Unix_domain_socket (`File config.path)) t in
+  ignore (Daemon.notify Daemon.State.Ready);
+  res
 
 exception Not_a_directory of string
 exception Does_not_exist of string

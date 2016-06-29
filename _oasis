@@ -23,7 +23,7 @@ Library message_switch
   Path:               core
   Findlibname:        message_switch
   Modules:            Protocol, Make, Monad, Result, S
-  BuildDepends:       cohttp (>= 0.15.0) ,rpclib,rpclib.json,rpclib.syntax,sexplib,sexplib.syntax,re.str
+  BuildDepends:       cohttp (>= 0.15.0) ,rpclib,rpclib.json,rpclib.syntax,sexplib,sexplib.syntax,re.str,systemd
 
 Library message_switch_lwt
   Build$:             flag(lwt)
